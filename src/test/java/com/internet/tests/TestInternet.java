@@ -18,17 +18,21 @@ public class TestInternet extends BaseTest {
 
 
     @Test(priority = 1)
-    public void moveToMultipleWindows() throws IOException {
+    public void moveToMultipleWindows() {
         mainPage = new MainPage(driver);
         mainPage.goToMultiplePages();
     }
 
     @Test(priority = 2)
-    public void multipleWindowsNavigation() throws IOException {
+    public void multipleWindowsNavigation() {
         multipleWindowsPage = new MultipleWindowsPage(driver);
         multipleWindowsPage.clickHere();
-        Assert.assertTrue(multipleWindowsPage.newWindow());
+        Assert.assertEquals(multipleWindowsPage.newWindow(), "New Window", "Error");
         out.println(multipleWindowsPage.newWindow());
+
+        multipleWindowsPage.navigateToMainTab();
+        Assert.assertEquals(multipleWindowsPage.mainTab(), "Opening a new window", "Error");
+        out.println(multipleWindowsPage.mainTab());
 
 
     }
