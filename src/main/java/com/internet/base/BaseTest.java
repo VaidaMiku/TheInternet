@@ -16,7 +16,6 @@ import static com.internet.util.TestDataReader.getUrl;
 public class BaseTest {
 
     public WebDriver driver;
-
     DesiredCapabilities dc;
 
     @BeforeTest
@@ -25,7 +24,6 @@ public class BaseTest {
         String browser = getBrowser();
         String baseUrl = getUrl();
 
-
         dc = new DesiredCapabilities();
         dc.setPlatform(Platform.WINDOWS);
         dc.setBrowserName(browser);
@@ -33,7 +31,6 @@ public class BaseTest {
         driver.get(baseUrl);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         driver.manage().window().maximize();
-
     }
 
     @AfterTest

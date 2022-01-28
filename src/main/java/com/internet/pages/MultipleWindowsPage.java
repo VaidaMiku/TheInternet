@@ -1,17 +1,15 @@
 package com.internet.pages;
 
-import com.internet.base.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.io.IOException;
-import java.time.Duration;
 import java.util.ArrayList;
 
-public class MultipleWindowsPage extends BaseTest {
+public class MultipleWindowsPage {
 
+    WebDriver driver;
     ArrayList<String> newTab;
 
     public MultipleWindowsPage(WebDriver driver) {
@@ -31,7 +29,6 @@ public class MultipleWindowsPage extends BaseTest {
 
     public void clickHere() {
         clickHereLink.click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         newTab = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(newTab.get(1));
     }
